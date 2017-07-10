@@ -5,6 +5,7 @@ install: true
 script:
   - sudo apt-get update && sudo apt-get install oracle-java8-installer
   - java -version
+  - mvn install
 
 before_deploy:
   - export APP_VERSION=$(basename target/Flickr-Dataset-Creator*.jar|grep -Eo "[0-9]{1,}\.[0-9]{1,}")
