@@ -9,12 +9,12 @@ script:
 before_deploy:
 - export APP_VERSION=$(basename target/Flickr-Dataset-Creator*.jar|grep -Eo "[0-9]{1,}\.[0-9]{1,}")
 - cd target
-- tar -zcvf ../Flickr-Dataset-Creator-$APP_VERSION.tar Flickr-Dataset-Creator-$APP_VERSION.jar
+- tar -zcvf Flickr-Dataset-Creator-$APP_VERSION.tar Flickr-Dataset-Creator-$APP_VERSION.jar
 - cd ..
 deploy:
   provider: releases
   api_key:
     secure: MzbkppbAV48WLXCB/d58zvThrPj2H4XVYPXdQphQrN1FQdRhoJ869U85QmQa3bxXKUBaHF0I60xmrOn0rsP8y+fekbfqxsF8y3BuDbFJZEXI3pNhUdsK8u+OtQEPiKt8y32hpI+H0EAewNeY28v8ch1/HxZo5LIQ3dGCtEA05zNqPcvi2DOFlhkGy8KTUwOGdHZsuaX9EveEQI36BtWHdW3rSXhFIVkF9qQw0+/G6HcUG0ldJ4IdeFMvzzcJ5DGljwAouPp+uWGTl72ogsyzoWdIUhwnwExmycT+Hyb+EuO6fqVFN64OT1q5epOx6B3jXeuaxZpqSS/S/SeBkvNASmj1BqFtkwnq8tNj3NwLvIqyfwMXykmYMyOqzey6j3HkoNFKYDUEu1odNlwLVANq5j+qXH2orhdHEgRNZFrWfa6ZgcVNmtP2HNwIg6q+H7hj6YY6KbY5mlHNEUUhC6SUAavupru5oXjsNe+6Hu5fJWfSNb84rWA4/2r4e2Mju7YKIhJDEbQA8m4IkXmrpkpdCk+oL1w8yoDHTTSBdb/AlJ9Q+FiUBd3uTaK+SAnp8jCDHsT1UbkNnT6AIkye3Ff+v3y/J9UdrrJwo2UDMJcciWgC7dMgg8LsdERFRymV4FmfEUgHkbJbvUozTTWXVl3UNOrhZc7az7DEoht01sU3exk=
-  file: Flickr-Dataset-Creator-$APP_VERSION.tar
+  file: target/Flickr-Dataset-Creator-$APP_VERSION.tar
   on:
     repo: scheckmedia/Flickr-Dataset-Creator
