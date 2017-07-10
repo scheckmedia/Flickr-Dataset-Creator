@@ -1,0 +1,16 @@
+sudo: false
+language: java
+before_deploy: "
+  export APP_VERSION=$(basename target/Flickr-Dataset-Creator*.jar|grep -Eo '[0-9]{1,}\.[0-9]{1,}') \
+  cd target && tar -zcvf ../Flickr-Dataset-Creator-$APP_VERSION.jar . && cd .."
+
+deploy:
+  deploy:
+    provider: releases
+    api_key:
+      secure: faqXDjv3SX3BYg36+a4xvFZ5L26sIz1u7edjtj1KgqIqUPrBXfj1FAkEjpEAlvLlS0OL2OaJghXua1NuZlzL7+dl2eRtD32oZWyejUS+jy2yFwRJ3oSXGL5T20MM5xFUpDXRm6VuoIFVfuzieJqzz7gVPMr/uT1JnCqbB3GEtAc=
+    file: "Flickr-Dataset-Creator-$APP_VERSION.tar.gz"
+    skip_cleanup: true
+    on:
+      repo: scheckmedia/Flickr-Dataset-Creator
+      tags: true
