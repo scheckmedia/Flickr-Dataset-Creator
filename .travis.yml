@@ -1,7 +1,7 @@
 sudo: false
 language: java
-before_deploy: " export APP_VERSION=$(basename target/Flickr-Dataset-Creator*.jar|grep -Eo '[0-9]{1,}\.[0-9]{1,}') && \
-  cd target && tar -zcvf ../Flickr-Dataset-Creator-$APP_VERSION.jar . && cd .."
+before_deploy: "export APP_VERSION=$(basename target/Flickr-Dataset-Creator*.jar|grep -Eo '[0-9]{1,}\.[0-9]{1,}') && \
+  cd target && tar -zcvf ../Flickr-Dataset-Creator-$APP_VERSION.tar ../Flickr-Dataset-Creator-$APP_VERSION.jar && cd .."
 
 deploy:
   deploy:
